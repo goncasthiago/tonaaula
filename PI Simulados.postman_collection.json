@@ -1,0 +1,1663 @@
+{
+	"info": {
+		"_postman_id": "d1c17eaa-b7f1-4d93-8fd8-c9bfbf28ecf6",
+		"name": "PI Simulados",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json()",
+									"pm.globals.set(\"accessToken\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"thiagodebia@gmail.com\",\n    \"password\": \"1234567\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json()",
+									"pm.globals.set(\"accessToken\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Thiago\",\n    \"email\": \"thiagodebia@gmail.com\",\n    \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/auth/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Materias",
+			"item": [
+				{
+					"name": "Cria Materia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/materias",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"materias"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Cria Materia",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Matemática\"\n}"
+								},
+								"url": {
+									"raw": "localhost:5007/api/v1/materias",
+									"host": [
+										"localhost"
+									],
+									"port": "5007",
+									"path": [
+										"api",
+										"v1",
+										"materias"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "101"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"65-LObPxOzRXln5/aEBCEcYKE4LT34\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Apr 2022 01:49:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"materia\": {\n                \"nome\": \"Matemática\",\n                \"_id\": \"6269f294ad1b83214f330111\",\n                \"__v\": 0\n            }\n        }\n    ]\n}"
+						},
+						{
+							"name": "Cria Materia",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"hhghghhhjhbjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjh\"\n}"
+								},
+								"url": {
+									"raw": "localhost:5007/api/v1/materias",
+									"host": [
+										"localhost"
+									],
+									"port": "5007",
+									"path": [
+										"api",
+										"v1",
+										"materias"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "771"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"303-OGV3Ui9/LoTaQ1M14njdpkty5wE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Apr 2022 02:24:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": {\n        \"errors\": {\n            \"nome\": {\n                \"name\": \"ValidatorError\",\n                \"message\": \"O nome da matéria não deve ser maior que 50 palavras\",\n                \"properties\": {\n                    \"message\": \"O nome da matéria não deve ser maior que 50 palavras\",\n                    \"type\": \"maxlength\",\n                    \"maxlength\": 50,\n                    \"path\": \"nome\",\n                    \"value\": \"hhghghhhjhbjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjh\"\n                },\n                \"kind\": \"maxlength\",\n                \"path\": \"nome\",\n                \"value\": \"hhghghhhjhbjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjh\"\n            }\n        },\n        \"_message\": \"Materia validation failed\",\n        \"name\": \"ValidationError\",\n        \"message\": \"Materia validation failed: nome: O nome da matéria não deve ser maior que 50 palavras\"\n    }\n}"
+						},
+						{
+							"name": "Cria Materia",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Geografia\"\n}"
+								},
+								"url": {
+									"raw": "localhost:5007/api/v1/materias",
+									"host": [
+										"localhost"
+									],
+									"port": "5007",
+									"path": [
+										"api",
+										"v1",
+										"materias"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "99"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"63-jjanJEZEV1+g8+CjpyppCMU7eNI\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Apr 2022 10:17:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"materia\": {\n                \"nome\": \"Geografia\",\n                \"_id\": \"626a69a7c41d157e683f06c9\",\n                \"__v\": 0\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Busca todas as materias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/materias/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"materias",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Materia",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:5007/api/v1/materias",
+									"host": [
+										"localhost"
+									],
+									"port": "5007",
+									"path": [
+										"api",
+										"v1",
+										"materias"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "239"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ef-33U9hK0pTmAlnBEQfTz2/0twZI8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Apr 2022 09:32:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"_id\": \"6269f3c608766a6139f2599e\",\n            \"nome\": \"Matemática\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6269f6c3e7f9c191747d61c5\",\n            \"nome\": \"Conhecimentos Gerais\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6269faf3b1e8afa6eec07c3f\",\n            \"nome\": \"Pensamento Computacional\",\n            \"__v\": 0\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Busca materia por id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/materias/6269fas3b1e8afa6eec04c3f",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"materias",
+								"6269fas3b1e8afa6eec04c3f"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Materia",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:5007/api/v1/materias/6269f3c608766a6139f2599e",
+									"host": [
+										"localhost"
+									],
+									"port": "5007",
+									"path": [
+										"api",
+										"v1",
+										"materias",
+										"6269f3c608766a6139f2599e"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "101"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"65-a0GN2tkUzWVWR7hITjgyGGed1UM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Apr 2022 10:15:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"materia\": {\n                \"_id\": \"6269f3c608766a6139f2599e\",\n                \"nome\": \"Matemática\",\n                \"__v\": 0\n            }\n        }\n    ]\n}"
+						},
+						{
+							"name": "Materia por id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:5007/api/v1/materias/6269f3c608766a6139f25990",
+									"host": [
+										"localhost"
+									],
+									"port": "5007",
+									"path": [
+										"api",
+										"v1",
+										"materias",
+										"6269f3c608766a6139f25990"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "85"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"55-AoiHtGwZSal14QC0W36/LdjQIBM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Apr 2022 10:24:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": \"Nenhuma materia com o id 6269f3c608766a6139f25990\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Apaga materia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/materias/6269faf3b1e8afa6eec07c3f",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"materias",
+								"6269faf3b1e8afa6eec07c3f"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Materia por id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:5007/api/v1/materias/6269f3c608766a6139f2599e",
+									"host": [
+										"localhost"
+									],
+									"port": "5007",
+									"path": [
+										"api",
+										"v1",
+										"materias",
+										"6269f3c608766a6139f2599e"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "96"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"60-aHhL5N1kV+t0z252tq0Ba45KIRE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Apr 2022 10:32:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"_id\": \"6269f3c608766a6139f2599e\",\n        \"nome\": \"Matemática\",\n        \"__v\": 0\n    },\n    \"msg\": \"\"\n}"
+						},
+						{
+							"name": "Materia por id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:5007/api/v1/materias/6269f3c608796a6139f2599e",
+									"host": [
+										"localhost"
+									],
+									"port": "5007",
+									"path": [
+										"api",
+										"v1",
+										"materias",
+										"6269f3c608796a6139f2599e"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b-t1ArC8dLs/kyJkBdU8wf+xVdTU0\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Apr 2022 10:33:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": \"Id 6269f3c608796a6139f2599e não existe\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Atualiza Materia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/materias/626b2fe65c8a7ebfc112668e",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"materias",
+								"626b2fe65c8a7ebfc112668e"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Atualiza Materia",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\":\"Futebol\"\n}"
+								},
+								"url": {
+									"raw": "localhost:5007/api/v1/materias/6269f6c3e7f9c191747d61c5",
+									"host": [
+										"localhost"
+									],
+									"port": "5007",
+									"path": [
+										"api",
+										"v1",
+										"materias",
+										"6269f6c3e7f9c191747d61c5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "110"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6e-JuZHPpWyjcOPA89+g/6qVq1sFtE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Apr 2022 10:56:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"_id\": \"6269f6c3e7f9c191747d61c5\",\n        \"nome\": \"Futebol\",\n        \"__v\": 0\n    },\n    \"msg\": \"Materia atualizada\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Questoes",
+			"item": [
+				{
+					"name": "Cria Questão",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"enunciado\": \"É possível que você encontre muitos problemas para resolver com sua aplicação. Qual ferramenta do pensamento computacional é utilzada para essa situação?\",\n    \"materia\": \"6269f6c3e7f9c191747d61c5\",\n    \"alternativas\": [\"Decomposição de Problemas\", \"Resolução de todos os problemas\", \"Utilização de Framework Web\", \"Todas as anteriores\"],\n    \"comentarios\": [\"Correto, com a decomposição dos problemas, é possível resolver os problemas menores, até chegar na solução do todos\",\n    \"BBB\", \"CCCC\", \"DDDD\"],\n    \"correta\": 1\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/questoes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"questoes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Cria Materia",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Matemática\"\n}"
+								},
+								"url": {
+									"raw": "localhost:5007/api/v1/materias",
+									"host": [
+										"localhost"
+									],
+									"port": "5007",
+									"path": [
+										"api",
+										"v1",
+										"materias"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "101"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"65-LObPxOzRXln5/aEBCEcYKE4LT34\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Apr 2022 01:49:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"materia\": {\n                \"nome\": \"Matemática\",\n                \"_id\": \"6269f294ad1b83214f330111\",\n                \"__v\": 0\n            }\n        }\n    ]\n}"
+						},
+						{
+							"name": "Cria Materia",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"hhghghhhjhbjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjh\"\n}"
+								},
+								"url": {
+									"raw": "localhost:5007/api/v1/materias",
+									"host": [
+										"localhost"
+									],
+									"port": "5007",
+									"path": [
+										"api",
+										"v1",
+										"materias"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "771"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"303-OGV3Ui9/LoTaQ1M14njdpkty5wE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Apr 2022 02:24:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": {\n        \"errors\": {\n            \"nome\": {\n                \"name\": \"ValidatorError\",\n                \"message\": \"O nome da matéria não deve ser maior que 50 palavras\",\n                \"properties\": {\n                    \"message\": \"O nome da matéria não deve ser maior que 50 palavras\",\n                    \"type\": \"maxlength\",\n                    \"maxlength\": 50,\n                    \"path\": \"nome\",\n                    \"value\": \"hhghghhhjhbjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjh\"\n                },\n                \"kind\": \"maxlength\",\n                \"path\": \"nome\",\n                \"value\": \"hhghghhhjhbjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjh\"\n            }\n        },\n        \"_message\": \"Materia validation failed\",\n        \"name\": \"ValidationError\",\n        \"message\": \"Materia validation failed: nome: O nome da matéria não deve ser maior que 50 palavras\"\n    }\n}"
+						},
+						{
+							"name": "Cria Materia",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Geografia\"\n}"
+								},
+								"url": {
+									"raw": "localhost:5007/api/v1/materias",
+									"host": [
+										"localhost"
+									],
+									"port": "5007",
+									"path": [
+										"api",
+										"v1",
+										"materias"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "99"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"63-jjanJEZEV1+g8+CjpyppCMU7eNI\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Apr 2022 10:17:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"materia\": {\n                \"nome\": \"Geografia\",\n                \"_id\": \"626a69a7c41d157e683f06c9\",\n                \"__v\": 0\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Busca todas as Questoes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/questoes/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"questoes",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Materia",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:5007/api/v1/materias",
+									"host": [
+										"localhost"
+									],
+									"port": "5007",
+									"path": [
+										"api",
+										"v1",
+										"materias"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "239"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ef-33U9hK0pTmAlnBEQfTz2/0twZI8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Apr 2022 09:32:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"_id\": \"6269f3c608766a6139f2599e\",\n            \"nome\": \"Matemática\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6269f6c3e7f9c191747d61c5\",\n            \"nome\": \"Conhecimentos Gerais\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6269faf3b1e8afa6eec07c3f\",\n            \"nome\": \"Pensamento Computacional\",\n            \"__v\": 0\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Busca questao por id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/questoes/6270532f2a421e80995ba30e",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"questoes",
+								"6270532f2a421e80995ba30e"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Materia",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:5007/api/v1/materias/6269f3c608766a6139f2599e",
+									"host": [
+										"localhost"
+									],
+									"port": "5007",
+									"path": [
+										"api",
+										"v1",
+										"materias",
+										"6269f3c608766a6139f2599e"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "101"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"65-a0GN2tkUzWVWR7hITjgyGGed1UM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Apr 2022 10:15:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"materia\": {\n                \"_id\": \"6269f3c608766a6139f2599e\",\n                \"nome\": \"Matemática\",\n                \"__v\": 0\n            }\n        }\n    ]\n}"
+						},
+						{
+							"name": "Materia por id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:5007/api/v1/materias/6269f3c608766a6139f25990",
+									"host": [
+										"localhost"
+									],
+									"port": "5007",
+									"path": [
+										"api",
+										"v1",
+										"materias",
+										"6269f3c608766a6139f25990"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "85"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"55-AoiHtGwZSal14QC0W36/LdjQIBM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Apr 2022 10:24:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": \"Nenhuma materia com o id 6269f3c608766a6139f25990\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Apaga Questao",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/questoes/6270532f2a421e80995ba30e",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"questoes",
+								"6270532f2a421e80995ba30e"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Materia por id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:5007/api/v1/materias/6269f3c608766a6139f2599e",
+									"host": [
+										"localhost"
+									],
+									"port": "5007",
+									"path": [
+										"api",
+										"v1",
+										"materias",
+										"6269f3c608766a6139f2599e"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "96"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"60-aHhL5N1kV+t0z252tq0Ba45KIRE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Apr 2022 10:32:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"_id\": \"6269f3c608766a6139f2599e\",\n        \"nome\": \"Matemática\",\n        \"__v\": 0\n    },\n    \"msg\": \"\"\n}"
+						},
+						{
+							"name": "Materia por id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:5007/api/v1/materias/6269f3c608796a6139f2599e",
+									"host": [
+										"localhost"
+									],
+									"port": "5007",
+									"path": [
+										"api",
+										"v1",
+										"materias",
+										"6269f3c608796a6139f2599e"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b-t1ArC8dLs/kyJkBdU8wf+xVdTU0\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Apr 2022 10:33:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": \"Id 6269f3c608796a6139f2599e não existe\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Atualiza Questao",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\":\"\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/questoes/62705407bd500af9b1f682ab",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"questoes",
+								"62705407bd500af9b1f682ab"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Atualiza Materia",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\":\"Futebol\"\n}"
+								},
+								"url": {
+									"raw": "localhost:5007/api/v1/materias/6269f6c3e7f9c191747d61c5",
+									"host": [
+										"localhost"
+									],
+									"port": "5007",
+									"path": [
+										"api",
+										"v1",
+										"materias",
+										"6269f6c3e7f9c191747d61c5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "110"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6e-JuZHPpWyjcOPA89+g/6qVq1sFtE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Apr 2022 10:56:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"data\": {\n        \"_id\": \"6269f6c3e7f9c191747d61c5\",\n        \"nome\": \"Futebol\",\n        \"__v\": 0\n    },\n    \"msg\": \"Materia atualizada\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "API inexistente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/teste",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"teste"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "API inexistente",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/teste",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"teste"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-2mRjwoDRbJGnQPXa1/7/DawVSwQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 28 Apr 2022 23:34:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"data\": [],\n    \"msg\": \"Rota não existe\"\n}"
+				}
+			]
+		}
+	]
+}
